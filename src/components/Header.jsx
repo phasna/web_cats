@@ -8,6 +8,7 @@ import {
   Menu,
   X,
   Info,
+  HelpCircle,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -26,6 +27,7 @@ const Header = () => {
     { to: "/dons", label: "Faire un don", icon: Gift },
     { to: "/visite-virtuelle", label: "Visite virtuelle", icon: Camera },
     { to: "/a-propos", label: "À propos", icon: Info },
+    { to: "/faq", label: "FAQ", icon: HelpCircle },
   ];
 
   const isActive = (path) => location.pathname === path;

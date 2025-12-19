@@ -10,6 +10,7 @@ import Donations from "./pages/Donations";
 import VirtualVisit from "./pages/VirtualVisit";
 import RegisterCat from "./pages/RegisterCat";
 import About from "./pages/About";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/visite-virtuelle" element={<VirtualVisit />} />
               <Route path="/enregistrer-chat" element={<RegisterCat />} />
               <Route path="/a-propos" element={<About />} />
+              <Route path="/faq" element={<FAQ />} />
             </Routes>
           </main>
           <Footer />

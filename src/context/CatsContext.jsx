@@ -59,6 +59,81 @@ const initialCats = [
       "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600",
       "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=600",
     ],
+    physicalCharacteristics: {
+      size: "Moyen",
+      coatLength: "Long",
+      coatType: "Dense et soyeux",
+      eyeColor: "Or et vert",
+      tailLength: "Longue et touffue",
+      earType: "Petites et arrondies",
+      build: "Robuste",
+    },
+    behavior: {
+      activityLevel: "Calme",
+      playfulness: "Modéré",
+      independence: "Moyen",
+      sociability: "Très sociable",
+      vocalization: "Peu vocal",
+      groomingNeeds: "Élevé (brossage quotidien recommandé)",
+      energyLevel: "Faible à modéré",
+      curiosity: "Modérée",
+      adaptability: "Excellente",
+    },
+    preferences: {
+      favoriteActivities: [
+        "Dormir sur les genoux",
+        "Jouer avec des peluches",
+        "Regarder par la fenêtre",
+      ],
+      favoriteFood: "Croquettes premium pour chat d'intérieur",
+      favoriteToys: [
+        "Balles en laine",
+        "Plumes suspendues",
+        "Souris en peluche",
+      ],
+      sleepSchedule: "Dort beaucoup, surtout l'après-midi",
+      preferredSpots: ["Canapé", "Lit", "Fenêtre ensoleillée"],
+      socialPreference: "Aime la compagnie humaine constante",
+    },
+    careInstructions: {
+      feeding: "2 repas par jour, portions de 60g de croquettes + 50g de pâtée",
+      grooming: "Brossage quotidien obligatoire, bain mensuel recommandé",
+      exercise: "Jeux modérés 15-20 min par jour",
+      litterBox:
+        "Changez la litière tous les 2-3 jours, préférence pour litière agglomérante",
+      vetVisits: "Contrôle annuel, vaccination annuelle",
+    },
+    medicalHistory: {
+      surgeries: ["Stérilisation - 2024-01-10"],
+      treatments: ["Vermifuge - 2024-01-12", "Anti-parasitaires - 2024-01-12"],
+      allergies: "Aucune connue",
+      medications: "Aucune",
+      chronicConditions: "Aucune",
+    },
+    dailyRoutine: {
+      morning: "Réveil vers 7h, petit-déjeuner, sieste sur le canapé",
+      afternoon: "Jeux légers, observation de la fenêtre, sieste prolongée",
+      evening: "Repas du soir, câlins et moments de détente avec les humains",
+      night: "Dort dans un panier douillet ou sur le lit",
+    },
+    training: {
+      litterTrained: true,
+      leashTrained: false,
+      commands: ["Répond au nom", "Vient quand on l'appelle"],
+      tricks: ["Assis", "Donne la patte"],
+      behavioralNotes: "Très obéissante, répond bien aux récompenses positives",
+    },
+    environmentNeeds: {
+      indoor: true,
+      outdoor: false,
+      temperature: "Température ambiante confortable (18-22°C)",
+      space: "Minimum 20m², aime avoir plusieurs espaces de repos",
+      accessories: [
+        "Griffoir vertical obligatoire",
+        "Plusieurs gamelles",
+        "Paniers douillets",
+      ],
+    },
   },
   {
     id: 2,
@@ -107,6 +182,82 @@ const initialCats = [
       "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600",
       "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600",
     ],
+    physicalCharacteristics: {
+      size: "Grand",
+      coatLength: "Court",
+      coatType: "Dense et lustré",
+      eyeColor: "Jaune et vert",
+      tailLength: "Moyenne",
+      earType: "Moyennes et pointues",
+      build: "Athlétique",
+    },
+    behavior: {
+      activityLevel: "Actif",
+      playfulness: "Élevé",
+      independence: "Élevé",
+      sociability: "Sociable mais indépendant",
+      vocalization: "Modéré",
+      groomingNeeds: "Faible (brossage hebdomadaire suffisant)",
+      energyLevel: "Élevé",
+      curiosity: "Très élevée",
+      adaptability: "Bonne",
+    },
+    preferences: {
+      favoriteActivities: [
+        "Courir dans le jardin",
+        "Chasser les jouets",
+        "Escalader",
+        "Explorer",
+      ],
+      favoriteFood: "Croquettes actives, aime la variété",
+      favoriteToys: ["Canne à pêche", "Laser", "Ballons", "Objets qui roulent"],
+      sleepSchedule: "Dort la nuit, actif le jour",
+      preferredSpots: ["Jardin", "Arbre à chat", "Hauteurs"],
+      socialPreference:
+        "Aime l'indépendance mais apprécie les moments de jeu avec les humains",
+    },
+    careInstructions: {
+      feeding:
+        "2-3 repas par jour, portions de 80g de croquettes, activité physique importante",
+      grooming: "Brossage 2-3 fois par semaine",
+      exercise:
+        "Minimum 1h d'activité par jour, idéalement avec accès extérieur",
+      litterBox: "Litière à changer tous les 2 jours, préfère litière minérale",
+      vetVisits: "Contrôle annuel, vaccination annuelle",
+    },
+    medicalHistory: {
+      surgeries: ["Stérilisation - 2024-01-22"],
+      treatments: ["Vermifuge - 2024-01-22", "Anti-parasitaires - 2024-01-22"],
+      allergies: "Aucune connue",
+      medications: "Aucune",
+      chronicConditions: "Aucune",
+    },
+    dailyRoutine: {
+      morning: "Réveil actif vers 6h, petit-déjeuner, exploration du jardin",
+      afternoon: "Sieste courte, jeux actifs, observation des oiseaux",
+      evening: "Repas du soir, dernière session de jeux, retour à l'intérieur",
+      night: "Dort calmement après une journée active",
+    },
+    training: {
+      litterTrained: true,
+      leashTrained: false,
+      commands: ["Répond au nom", "Vient", "Assis"],
+      tricks: ["Saut", "Rapporte"],
+      behavioralNotes:
+        "Très intelligent, apprend rapidement, a besoin de stimulation mentale",
+    },
+    environmentNeeds: {
+      indoor: false,
+      outdoor: true,
+      temperature: "Adaptable, supporte bien le froid modéré",
+      space: "Besoin d'espace extérieur sécurisé (jardin) minimum 50m²",
+      accessories: [
+        "Arbre à chat multi-niveaux",
+        "Griffoirs variés",
+        "Jouets interactifs",
+        "Accès extérieur sécurisé",
+      ],
+    },
   },
   {
     id: 3,
@@ -157,6 +308,99 @@ const initialCats = [
       "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=600",
       "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600",
     ],
+    physicalCharacteristics: {
+      size: "Petit à moyen",
+      coatLength: "Court",
+      coatType: "Fin et serré",
+      eyeColor: "Bleu profond",
+      tailLength: "Longue et fine",
+      earType: "Grandes et pointues",
+      build: "Svelte et élégante",
+    },
+    behavior: {
+      activityLevel: "Calme",
+      playfulness: "Modéré",
+      independence: "Faible",
+      sociability: "Sociable mais méfiante",
+      vocalization: "Vocal (miaule souvent)",
+      groomingNeeds: "Faible (brossage hebdomadaire)",
+      energyLevel: "Faible",
+      curiosity: "Modérée",
+      adaptability: "Moyenne, besoin de temps",
+    },
+    preferences: {
+      favoriteActivities: [
+        "Câlins doux",
+        "Jeux calmes",
+        "Observer",
+        "Se percher en hauteur",
+      ],
+      favoriteFood: "Pâtée humide, préfère les textures douces",
+      favoriteToys: [
+        "Plumes douces",
+        "Peluches",
+        "Jeux de recherche de nourriture",
+      ],
+      sleepSchedule: "Dort beaucoup, siestes fréquentes",
+      preferredSpots: [
+        "Paniers douillets",
+        "Endroits calmes et élevés",
+        "Près des radiateurs",
+      ],
+      socialPreference: "Préfère un environnement calme avec peu de visiteurs",
+    },
+    careInstructions: {
+      feeding:
+        "Petits repas fréquents (3-4 fois par jour), portions de 40g, alimentation douce",
+      grooming:
+        "Brossage 2 fois par semaine, attention particulière aux zones sensibles",
+      exercise: "Jeux très doux 10-15 min par jour, pas de mouvements brusques",
+      litterBox:
+        "Litière fine et douce, changement quotidien, hauteur réduite recommandée",
+      vetVisits:
+        "Contrôle tous les 6 mois, vaccination annuelle, suivi du handicap",
+    },
+    medicalHistory: {
+      surgeries: [
+        "Stérilisation - 2024-01-20",
+        "Opération patte arrière - 2023-12-20",
+      ],
+      treatments: [
+        "Anti-douleur post-opératoire",
+        "Vermifuge - 2024-01-20",
+        "Anti-parasitaires - 2024-01-20",
+      ],
+      allergies: "Aucune connue",
+      medications: "Aucune actuellement",
+      chronicConditions:
+        "Handicap patte arrière droite (suite accident), adaptation réussie",
+    },
+    dailyRoutine: {
+      morning: "Réveil doux vers 8h, petit-déjeuner, retour au repos",
+      afternoon: "Sieste longue, réveil pour observation tranquille",
+      evening: "Repas, moment de calme avec les humains, retour au repos",
+      night: "Dort profondément, besoin de calme absolu",
+    },
+    training: {
+      litterTrained: true,
+      leashTrained: false,
+      commands: ["Répond au nom", "Vient (avec patience)"],
+      tricks: "Apprentissage limité dû au handicap mais très intelligente",
+      behavioralNotes:
+        "Très douce et patiente, nécessite une approche calme et respectueuse de son handicap",
+    },
+    environmentNeeds: {
+      indoor: true,
+      outdoor: false,
+      temperature: "Température constante et confortable (20-22°C)",
+      space: "Espace calme et sécurisé, éviter les surfaces glissantes",
+      accessories: [
+        "Griffoir bas",
+        "Paniers avec accès facile",
+        "Rampes si nécessaire",
+        "Gamelles à hauteur adaptée",
+      ],
+    },
   },
   {
     id: 4,
@@ -206,6 +450,93 @@ const initialCats = [
       "https://images.unsplash.com/photo-1534361960057-19889db5defd?w=600",
       "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600",
     ],
+    physicalCharacteristics: {
+      size: "Très grand",
+      coatLength: "Long",
+      coatType: "Dense, imperméable et soyeux",
+      eyeColor: "Or cuivré",
+      tailLength: "Très longue et touffue",
+      earType: "Grandes avec plumets",
+      build: "Grand et musclé",
+    },
+    behavior: {
+      activityLevel: "Calme",
+      playfulness: "Modéré",
+      independence: "Très élevé",
+      sociability: "Réservé mais loyal",
+      vocalization: "Peu vocal, miaulements doux",
+      groomingNeeds: "Élevé (brossage 3-4 fois par semaine)",
+      energyLevel: "Modéré",
+      curiosity: "Modérée",
+      adaptability: "Moyenne, besoin de temps pour s'adapter",
+    },
+    preferences: {
+      favoriteActivities: [
+        "Observer depuis les hauteurs",
+        "Jouer seul",
+        "Se percher",
+        "Explorer avec précaution",
+      ],
+      favoriteFood: "Croquettes premium pour grands chats",
+      favoriteToys: ["Jeux de puzzle", "Objets suspendus", "Boîtes"],
+      sleepSchedule: "Dort beaucoup, surtout en journée",
+      preferredSpots: [
+        "Hauteurs (armoires, étagères)",
+        "Endroits isolés et calmes",
+        "Sous les meubles",
+      ],
+      socialPreference:
+        "Besoin d'espace personnel, préfère un foyer sans autres chats",
+    },
+    careInstructions: {
+      feeding:
+        "2 repas par jour, portions de 100g de croquettes + 80g de pâtée",
+      grooming: "Brossage 3-4 fois par semaine obligatoire, bain trimestriel",
+      exercise: "Jeux modérés et calmes, escalade sur arbre à chat",
+      litterBox: "Litière grande taille, changement tous les 2 jours",
+      vetVisits:
+        "Contrôle annuel, attention particulière aux articulations (âge)",
+    },
+    medicalHistory: {
+      surgeries: ["Stérilisation - 2024-01-08"],
+      treatments: [
+        "Vermifuge - 2024-02-10",
+        "Anti-parasitaires - 2024-02-10",
+        "Contrôle articulations - 2024-02-10",
+      ],
+      allergies: "Aucune connue",
+      medications: "Aucune",
+      chronicConditions: "Aucune, surveillance articulations recommandée (âge)",
+    },
+    dailyRoutine: {
+      morning: "Réveil tardif vers 9h, petit-déjeuner, retour au repos",
+      afternoon:
+        "Sieste longue, observation tranquille, moments de jeu solitaire",
+      evening:
+        "Repas du soir, interaction calme avec les humains, préparation au repos",
+      night: "Dort profondément, aime avoir son espace personnel",
+    },
+    training: {
+      litterTrained: true,
+      leashTrained: false,
+      commands: ["Répond au nom (avec patience)", "Vient (quand il le décide)"],
+      tricks: "Apprentissage limité, préfère son indépendance",
+      behavioralNotes:
+        "Très intelligent et observateur, nécessite une approche douce et respectueuse de sa personnalité réservée. Peut être territorial.",
+    },
+    environmentNeeds: {
+      indoor: true,
+      outdoor: false,
+      temperature: "Température confortable (18-22°C)",
+      space:
+        "Espace spacieux avec hauteurs, minimum 40m², éviter les espaces confinés",
+      accessories: [
+        "Grand arbre à chat multi-niveaux",
+        "Plusieurs griffoirs",
+        "Endroits en hauteur",
+        "Espaces isolés pour repos",
+      ],
+    },
   },
   {
     id: 5,
@@ -254,6 +585,100 @@ const initialCats = [
       "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600",
       "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600",
     ],
+    physicalCharacteristics: {
+      size: "Petit à moyen",
+      coatLength: "Court",
+      coatType: "Dense, doux et pelucheux",
+      eyeColor: "Or cuivré",
+      tailLength: "Moyenne",
+      earType: "Petites et arrondies",
+      build: "Compacte et robuste",
+    },
+    behavior: {
+      activityLevel: "Très actif",
+      playfulness: "Très élevé",
+      independence: "Faible",
+      sociability: "Très sociable",
+      vocalization: "Modéré",
+      groomingNeeds: "Faible (brossage hebdomadaire)",
+      energyLevel: "Très élevé",
+      curiosity: "Très élevée",
+      adaptability: "Excellente",
+    },
+    preferences: {
+      favoriteActivities: [
+        "Jouer activement",
+        "Courir",
+        "Explorer",
+        "Interaction avec les humains",
+        "Jouer avec d'autres chats",
+      ],
+      favoriteFood: "Croquettes pour chatons/chats actifs, aime la variété",
+      favoriteToys: [
+        "Tous les types de jouets",
+        "Canne à pêche",
+        "Balles",
+        "Puzzles interactifs",
+        "Jouets qui bougent",
+      ],
+      sleepSchedule: "Dort la nuit, très actif le jour",
+      preferredSpots: [
+        "Au centre de l'action",
+        "Près des humains",
+        "Espaces de jeu",
+      ],
+      socialPreference:
+        "Aime être entourée, recherche constamment l'interaction",
+    },
+    careInstructions: {
+      feeding:
+        "3-4 repas par jour (chatte en croissance), portions de 50g de croquettes + 40g de pâtée",
+      grooming: "Brossage hebdomadaire suffisant",
+      exercise: "Minimum 1h30 d'activité par jour, jeux interactifs essentiels",
+      litterBox: "Litière à changer tous les 2 jours",
+      vetVisits:
+        "Contrôle tous les 6 mois (jeune chatte), vaccination annuelle",
+    },
+    medicalHistory: {
+      surgeries: ["Stérilisation - 2024-02-05"],
+      treatments: [
+        "Vermifuge - 2024-02-15",
+        "Anti-parasitaires - 2024-02-15",
+        "Vaccination complète",
+      ],
+      allergies: "Aucune connue",
+      medications: "Aucune",
+      chronicConditions: "Aucune, jeune chatte en excellente santé",
+    },
+    dailyRoutine: {
+      morning:
+        "Réveil énergique vers 6h30, petit-déjeuner, session de jeux intense",
+      afternoon:
+        "Jeux actifs et exploration, courtes siestes, interaction constante",
+      evening: "Repas du soir, dernière session de jeux, calme progressif",
+      night: "Dort bien après une journée active",
+    },
+    training: {
+      litterTrained: true,
+      leashTrained: false,
+      commands: ["Répond au nom", "Vient", "Assis", "Donne la patte"],
+      tricks: ["Saute", "Rapporte", "Cherche", "Apporte"],
+      behavioralNotes:
+        "Très intelligente et apprend rapidement, répond très bien au renforcement positif, a besoin de stimulation constante",
+    },
+    environmentNeeds: {
+      indoor: true,
+      outdoor: false,
+      temperature: "Température normale (18-22°C)",
+      space: "Espace avec zones de jeu, minimum 30m²",
+      accessories: [
+        "Nombreux jouets variés",
+        "Arbre à chat avec plateformes",
+        "Griffoirs",
+        "Jeux interactifs",
+        "Caches pour siestes",
+      ],
+    },
   },
 ];
 

@@ -351,6 +351,451 @@ const CatDetail = () => {
             </p>
           </div>
 
+          {/* Physical Characteristics */}
+          {cat.physicalCharacteristics && (
+            <div className="card">
+              <h3 className="text-xl font-bold mb-4">
+                Caractéristiques physiques
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div>
+                  <span className="text-sm text-gray-600">Taille</span>
+                  <p className="font-semibold">
+                    {cat.physicalCharacteristics.size}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Type de pelage</span>
+                  <p className="font-semibold">
+                    {cat.physicalCharacteristics.coatType}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Longueur du pelage
+                  </span>
+                  <p className="font-semibold">
+                    {cat.physicalCharacteristics.coatLength}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Couleur des yeux
+                  </span>
+                  <p className="font-semibold">
+                    {cat.physicalCharacteristics.eyeColor}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Type de queue</span>
+                  <p className="font-semibold">
+                    {cat.physicalCharacteristics.tailLength}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Corpulence</span>
+                  <p className="font-semibold">
+                    {cat.physicalCharacteristics.build}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Behavior */}
+          {cat.behavior && (
+            <div className="card">
+              <h3 className="text-xl font-bold mb-4">Comportement</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Niveau d'activité
+                  </span>
+                  <p className="font-semibold">{cat.behavior.activityLevel}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Joueur</span>
+                  <p className="font-semibold">{cat.behavior.playfulness}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Indépendance</span>
+                  <p className="font-semibold">{cat.behavior.independence}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Sociabilité</span>
+                  <p className="font-semibold">{cat.behavior.sociability}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Vocalisation</span>
+                  <p className="font-semibold">{cat.behavior.vocalization}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Besoin de toilettage
+                  </span>
+                  <p className="font-semibold text-sm">
+                    {cat.behavior.groomingNeeds}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Niveau d'énergie
+                  </span>
+                  <p className="font-semibold">{cat.behavior.energyLevel}</p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">Curiosité</span>
+                  <p className="font-semibold">{cat.behavior.curiosity}</p>
+                </div>
+                <div className="md:col-span-2">
+                  <span className="text-sm text-gray-600">Adaptabilité</span>
+                  <p className="font-semibold">{cat.behavior.adaptability}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Preferences */}
+          {cat.preferences && (
+            <div className="card bg-purple-50 border-2 border-purple-200">
+              <h3 className="text-xl font-bold mb-4">
+                Préférences et habitudes
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <span className="text-sm font-semibold text-purple-900">
+                    Activités préférées
+                  </span>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {cat.preferences.favoriteActivities?.map(
+                      (activity, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm"
+                        >
+                          {activity}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-purple-900">
+                    Nourriture préférée
+                  </span>
+                  <p className="text-purple-800 mt-1">
+                    {cat.preferences.favoriteFood}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-purple-900">
+                    Jouets préférés
+                  </span>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {cat.preferences.favoriteToys?.map((toy, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm"
+                      >
+                        {toy}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-purple-900">
+                    Rythme de sommeil
+                  </span>
+                  <p className="text-purple-800 mt-1">
+                    {cat.preferences.sleepSchedule}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-purple-900">
+                    Endroits préférés
+                  </span>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {cat.preferences.preferredSpots?.map((spot, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm"
+                      >
+                        {spot}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-purple-900">
+                    Préférence sociale
+                  </span>
+                  <p className="text-purple-800 mt-1">
+                    {cat.preferences.socialPreference}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Care Instructions */}
+          {cat.careInstructions && (
+            <div className="card bg-green-50 border-2 border-green-200">
+              <h3 className="text-xl font-bold mb-4">Instructions de soins</h3>
+              <div className="space-y-3">
+                <div>
+                  <span className="text-sm font-semibold text-green-900">
+                    Alimentation
+                  </span>
+                  <p className="text-green-800 mt-1 text-sm">
+                    {cat.careInstructions.feeding}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-green-900">
+                    Toilettage
+                  </span>
+                  <p className="text-green-800 mt-1 text-sm">
+                    {cat.careInstructions.grooming}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-green-900">
+                    Exercice
+                  </span>
+                  <p className="text-green-800 mt-1 text-sm">
+                    {cat.careInstructions.exercise}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-green-900">
+                    Litière
+                  </span>
+                  <p className="text-green-800 mt-1 text-sm">
+                    {cat.careInstructions.litterBox}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-green-900">
+                    Visites vétérinaires
+                  </span>
+                  <p className="text-green-800 mt-1 text-sm">
+                    {cat.careInstructions.vetVisits}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Medical History */}
+          {cat.medicalHistory && (
+            <div className="card bg-blue-50 border-2 border-blue-200">
+              <h3 className="text-xl font-bold mb-4">Historique médical</h3>
+              <div className="space-y-3">
+                <div>
+                  <span className="text-sm font-semibold text-blue-900">
+                    Chirurgies
+                  </span>
+                  <ul className="list-disc list-inside text-blue-800 text-sm mt-1">
+                    {cat.medicalHistory.surgeries?.map((surgery, idx) => (
+                      <li key={idx}>{surgery}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-blue-900">
+                    Traitements récents
+                  </span>
+                  <ul className="list-disc list-inside text-blue-800 text-sm mt-1">
+                    {cat.medicalHistory.treatments?.map((treatment, idx) => (
+                      <li key={idx}>{treatment}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-blue-900">
+                    Allergies
+                  </span>
+                  <p className="text-blue-800 text-sm mt-1">
+                    {cat.medicalHistory.allergies}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-blue-900">
+                    Médicaments actuels
+                  </span>
+                  <p className="text-blue-800 text-sm mt-1">
+                    {cat.medicalHistory.medications}
+                  </p>
+                </div>
+                {cat.medicalHistory.chronicConditions && (
+                  <div>
+                    <span className="text-sm font-semibold text-blue-900">
+                      Conditions chroniques
+                    </span>
+                    <p className="text-blue-800 text-sm mt-1">
+                      {cat.medicalHistory.chronicConditions}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Daily Routine */}
+          {cat.dailyRoutine && (
+            <div className="card">
+              <h3 className="text-xl font-bold mb-4">Routine quotidienne</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <span className="text-sm font-semibold text-gray-700">
+                    Matin
+                  </span>
+                  <p className="text-gray-600 text-sm mt-1">
+                    {cat.dailyRoutine.morning}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-700">
+                    Après-midi
+                  </span>
+                  <p className="text-gray-600 text-sm mt-1">
+                    {cat.dailyRoutine.afternoon}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-700">
+                    Soir
+                  </span>
+                  <p className="text-gray-600 text-sm mt-1">
+                    {cat.dailyRoutine.evening}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-700">
+                    Nuit
+                  </span>
+                  <p className="text-gray-600 text-sm mt-1">
+                    {cat.dailyRoutine.night}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Training */}
+          {cat.training && (
+            <div className="card">
+              <h3 className="text-xl font-bold mb-4">Éducation et dressage</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Éduqué à la litière
+                  </span>
+                  <p className="font-semibold">
+                    {cat.training.litterTrained ? "Oui" : "Non"}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm text-gray-600">
+                    Éduqué en laisse
+                  </span>
+                  <p className="font-semibold">
+                    {cat.training.leashTrained ? "Oui" : "Non"}
+                  </p>
+                </div>
+                <div className="md:col-span-2">
+                  <span className="text-sm text-gray-600">
+                    Commandes connues
+                  </span>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {cat.training.commands?.map((cmd, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm"
+                      >
+                        {cmd}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                {cat.training.tricks && (
+                  <div className="md:col-span-2">
+                    <span className="text-sm text-gray-600">Tours appris</span>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {cat.training.tricks?.map((trick, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm"
+                        >
+                          {trick}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <div className="md:col-span-2">
+                  <span className="text-sm text-gray-600">
+                    Notes comportementales
+                  </span>
+                  <p className="text-gray-700 text-sm mt-1">
+                    {cat.training.behavioralNotes}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Environment Needs */}
+          {cat.environmentNeeds && (
+            <div className="card bg-indigo-50 border-2 border-indigo-200">
+              <h3 className="text-xl font-bold mb-4">
+                Besoins environnementaux
+              </h3>
+              <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <span className="text-sm font-semibold text-indigo-900">
+                      Intérieur/Extérieur
+                    </span>
+                    <p className="text-indigo-800 mt-1">
+                      {cat.environmentNeeds.indoor
+                        ? "Intérieur uniquement"
+                        : cat.environmentNeeds.outdoor
+                        ? "Accès extérieur requis"
+                        : "Les deux"}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-sm font-semibold text-indigo-900">
+                      Température
+                    </span>
+                    <p className="text-indigo-800 mt-1 text-sm">
+                      {cat.environmentNeeds.temperature}
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-indigo-900">
+                    Espace requis
+                  </span>
+                  <p className="text-indigo-800 mt-1 text-sm">
+                    {cat.environmentNeeds.space}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-indigo-900">
+                    Accessoires nécessaires
+                  </span>
+                  <ul className="list-disc list-inside text-indigo-800 text-sm mt-1">
+                    {cat.environmentNeeds.accessories?.map((acc, idx) => (
+                      <li key={idx}>{acc}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* CTA Button */}
           <Link
             to={`/adoption?catId=${cat.id}`}

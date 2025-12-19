@@ -121,6 +121,14 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/faq"
+                  className="text-gray-300 hover:text-primary-400 transition-colors inline-block"
+                >
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -1,115 +1,158 @@
-import { Link } from "react-router-dom";
+import { useState, useMemo } from "react";
 import { useCats } from "../context/CatsContext";
-import { Heart, MapPin, Shield, Baby, AlertCircle } from "lucide-react";
-import { useState } from "react";
+import CatCard from "../components/CatCard";
+import SearchBar from "../components/SearchBar";
+import FilterBar from "../components/FilterBar";
+import { Heart, Filter as FilterIcon } from "lucide-react";
 
 const CatsList = () => {
   const { cats } = useCats();
-  const [filter, setFilter] = useState("tous");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filters, setFilters] = useState({
+    location: "",
+    breed: "",
+    age: "",
+    gender: "",
+    childFriendly: null,
+    specialNeeds: null,
+    priceRange: "",
+  });
 
-  const availableCats = cats.filter((cat) => cat.available);
-  const filteredCats =
-    filter === "tous"
-      ? availableCats
-      : filter === "enfants"
-      ? availableCats.filter((cat) => cat.childFriendly)
-      : filter === "handicap"
-      ? availableCats.filter((cat) => cat.specialNeeds)
-      : availableCats;
+  const filteredCats = useMemo(() => {
+    let result = cats.filter((cat) => cat.available);
+
+    // Search filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(
+        (cat) =>
+          cat.name.toLowerCase().includes(query) ||
+          cat.breed.toLowerCase().includes(query) ||
+          cat.description.toLowerCase().includes(query) ||
+          cat.location.toLowerCase().includes(query) ||
+          cat.personality?.some((trait) => trait.toLowerCase().includes(query))
+      );
+    }
+
+    // Location filter
+    if (filters.location) {
+      result = result.filter((cat) => cat.location === filters.location);
+    }
+
+    // Breed filter
+    if (filters.breed) {
+      result = result.filter((cat) => cat.breed === filters.breed);
+    }
+
+    // Age filter
+    if (filters.age) {
+      const [min, max] = filters.age
+        .split("-")
+        .map((a) => a.replace("+", "999"));
+      result = result.filter((cat) => {
+        const age = parseInt(cat.age);
+        if (filters.age === "6+") return age >= 6;
+        return age >= parseInt(min) && age <= parseInt(max);
+      });
+    }
+
+    // Gender filter
+    if (filters.gender) {
+      result = result.filter((cat) => cat.gender === filters.gender);
+    }
+
+    // Child friendly filter
+    if (filters.childFriendly !== null) {
+      result = result.filter(
+        (cat) => cat.childFriendly === filters.childFriendly
+      );
+    }
+
+    // Special needs filter
+    if (filters.specialNeeds !== null) {
+      result = result.filter(
+        (cat) => cat.specialNeeds === filters.specialNeeds
+      );
+    }
+
+    // Price range filter
+    if (filters.priceRange) {
+      const [min, max] = filters.priceRange
+        .split("-")
+        .map((p) => p.replace("+", "9999"));
+      result = result.filter((cat) => {
+        const price = cat.adoptionFee;
+        if (filters.priceRange === "151+") return price >= 151;
+        return price >= parseInt(min) && price <= parseInt(max);
+      });
+    }
+
+    return result;
+  }, [cats, searchQuery, filters]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Chats à adopter</h1>
+    <div className="container mx-auto px-4 py-8 animate-fade-in">
+      <div className="text-center mb-8">
+        <h1 className="text-4xl lg:text-5xl font-bold mb-4">Chats à adopter</h1>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Découvrez tous nos compagnons félins en attente d'un foyer aimant
+        </p>
+      </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-4 justify-center mb-8">
-        <button
-          onClick={() => setFilter("tous")}
-          className={`px-4 py-2 rounded-lg transition-colors ${
-            filter === "tous"
-              ? "bg-primary-600 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          }`}
-        >
-          Tous
-        </button>
-        <button
-          onClick={() => setFilter("enfants")}
-          className={`px-4 py-2 rounded-lg transition-colors ${
-            filter === "enfants"
-              ? "bg-primary-600 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          }`}
-        >
-          Compatible enfants
-        </button>
-        <button
-          onClick={() => setFilter("handicap")}
-          className={`px-4 py-2 rounded-lg transition-colors ${
-            filter === "handicap"
-              ? "bg-primary-600 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          }`}
-        >
-          Handicapés
-        </button>
+      {/* Search Bar */}
+      <div className="mb-6">
+        <SearchBar
+          onSearch={setSearchQuery}
+          placeholder="Rechercher par nom, race, localisation ou personnalité..."
+        />
+      </div>
+
+      {/* Filter Bar */}
+      <FilterBar onFilterChange={setFilters} cats={cats} />
+
+      {/* Results count */}
+      <div className="mb-6 flex items-center justify-between">
+        <p className="text-gray-600">
+          <span className="font-semibold text-primary-600">
+            {filteredCats.length}
+          </span>{" "}
+          chat{filteredCats.length > 1 ? "s" : ""} trouvé
+          {filteredCats.length > 1 ? "s" : ""}
+        </p>
       </div>
 
       {/* Cats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredCats.map((cat) => (
-          <Link key={cat.id} to={`/chat/${cat.id}`} className="card group">
-            <div className="relative overflow-hidden rounded-lg mb-4">
-              <img
-                src={cat.image}
-                alt={cat.name}
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-200"
-              />
-              <div className="absolute top-4 right-4 flex gap-2">
-                {cat.vaccinated && (
-                  <div className="bg-green-500 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
-                    <Shield className="w-3 h-3" />
-                    Vacciné
-                  </div>
-                )}
-                {cat.childFriendly && (
-                  <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
-                    <Baby className="w-3 h-3" />
-                    Enfants OK
-                  </div>
-                )}
-                {cat.specialNeeds && (
-                  <div className="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
-                    <AlertCircle className="w-3 h-3" />
-                    Spécial
-                  </div>
-                )}
-              </div>
-            </div>
-            <h3 className="text-2xl font-bold mb-2">{cat.name}</h3>
-            <div className="flex items-center text-gray-600 mb-2">
-              <MapPin className="w-4 h-4 mr-1" />
-              <span>{cat.location}</span>
-            </div>
-            <p className="text-gray-600 mb-4 line-clamp-2">{cat.description}</p>
-            <div className="flex items-center justify-between">
-              <span className="text-primary-600 font-bold">
-                {cat.adoptionFee}€
-              </span>
-              <div className="flex items-center text-primary-600">
-                <Heart className="w-5 h-5 mr-1" />
-                <span>Adopter</span>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      {filteredCats.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-xl text-gray-600">
-            Aucun chat disponible pour ce filtre.
+      {filteredCats.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredCats.map((cat) => (
+            <CatCard key={cat.id} cat={cat} />
+          ))}
+        </div>
+      ) : (
+        <div className="card text-center py-12">
+          <Heart className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold mb-2">Aucun chat trouvé</h3>
+          <p className="text-gray-600 mb-6">
+            Aucun chat ne correspond à vos critères de recherche. Essayez de
+            modifier vos filtres.
           </p>
+          <button
+            onClick={() => {
+              setSearchQuery("");
+              setFilters({
+                location: "",
+                breed: "",
+                age: "",
+                gender: "",
+                childFriendly: null,
+                specialNeeds: null,
+                priceRange: "",
+              });
+            }}
+            className="btn-primary"
+          >
+            Réinitialiser les filtres
+          </button>
         </div>
       )}
     </div>
